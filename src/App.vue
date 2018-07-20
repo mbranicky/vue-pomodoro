@@ -16,3 +16,10 @@ export default {
   }
 }
 </script>
+
+<style>
+html.md-theme-default {
+  background-color: whitesmoke;
+}
+</style>
+

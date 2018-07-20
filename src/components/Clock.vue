@@ -13,21 +13,21 @@
             <md-card-content class="controls">
                 <div class="break">
                     <p>break length</p>
-                    <md-button class="md-icon-button md-primary" @click.native="breakLengthChange(-1)">
+                    <md-button class="md-icon-button" @click.native="breakLengthChange(-1)">
                         <md-icon>remove</md-icon>
                     </md-button>
                     <span class="time">{{breakInterval}}</span>
-                    <md-button class="md-icon-button md-primary" @click.native="breakLengthChange(1)">
+                    <md-button class="md-icon-button" @click.native="breakLengthChange(1)">
                         <md-icon>add</md-icon>
                     </md-button>
                 </div>
                 <div class="session">
                     <p>session length</p>
-                    <md-button class="md-icon-button md-primary" @click.native="sessionLengthChange(-1)">
+                    <md-button class="md-icon-button" @click.native="sessionLengthChange(-1)">
                         <md-icon>remove</md-icon>
                     </md-button>
                     <span class="time">{{sessionInterval}}</span>
-                    <md-button class="md-icon-button md-primary" @click.native="sessionLengthChange(1)">
+                    <md-button class="md-icon-button" @click.native="sessionLengthChange(1)">
                         <md-icon>add</md-icon>
                     </md-button>
                 </div>
@@ -37,7 +37,7 @@
                     <div class="time_type">{{session ? 'Session' : 'Break'}}</div>
                     <div class="time_left">{{timeToLeft}}</div>
                 </md-button>
-                <md-spinner :md-size="200" :md-stroke="2.5" :md-progress="progress"/>
+                <md-progress-spinner :md-diameter="175" :md-stroke="20" :md-value="progress"/>
             </md-card-content>
             <md-card-area md-inset>
                 <md-card-content class="round">
@@ -47,11 +47,11 @@
                 </md-card-content>
             </md-card-area>
             <md-card-actions>
-                <md-button class="md-primary" @click.native="pauseProgress">
+                <md-button @click.native="pauseProgress">
                     <md-icon>{{pause_icon}}</md-icon>
                     <span>{{pause_label}}</span>
                 </md-button>
-                <md-button class="md-primary" @click.native="stopProgress">
+                <md-button @click.native="stopProgress">
                     <md-icon>stop</md-icon>
                     <span>Stop</span>
                 </md-button>
@@ -176,7 +176,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 .main-card {
     width: 320px;
     margin-top: 60px;
@@ -185,8 +185,8 @@ export default {
     padding-bottom: 5px;
 }
 .header {
-    background-color: #3f51b5;
-    color: #ffffff;
+    background-color: #64dd17;
+    color: #424242;
     text-align: left;
 }
 .clock {
@@ -201,7 +201,7 @@ export default {
     width: 150px;
     height: 150px;
     padding-bottom: 0;
-    color: white !important;
+    color: #424242 !important;
 }
 .clock .time_type {
     font-size: 17px;
@@ -210,11 +210,14 @@ export default {
 .clock .time_left {
     font-size: 30px;
 }
-.clock .md-spinner {
+.clock .md-progress-spinner {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%); 
+    transform: translate(-50%, -50%);
+}
+.clock .md-progress-spinner-circle {
+    stroke: whitesmoke !important;
 }
 .controls {
     display: flex;
@@ -258,5 +261,6 @@ export default {
     margin-top: 10px;
     text-align: center;
     font-style: italic;
+    color: #64dd17;
 }
 </style>
